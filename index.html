@@ -66,6 +66,16 @@
         display: none;
       }
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+
   </style>
 
   <!-- Meta Pixel Code -->
@@ -634,3 +644,24 @@
     <i class="fab fa-whatsapp text-xl"></i>
     <span class="hidden md:inline" style="font-size: 18px;">Fale conosco</span>
   </a>
+
+  <script>
+    // Garante que o splash fique por pelo menos 1,4 segundos
+    window.addEventListener('load', () => {
+      const splash = document.getElementById('splash');
+      setTimeout(() => {
+        splash.style.opacity = 0;
+        setTimeout(() => {
+          splash.style.display = 'none';
+        }, 500); // tempo do fade-out
+      }, 1400); // tempo mínimo de exibição (1,4 segundos)
+    });
+  </script>  
+</body>
+
+<!-- Splash Screen -->
+<div id="splash" class="fixed inset-0 bg-green-900 text-white flex flex-col justify-center items-center z-[9999] transition-opacity duration-500">
+  <img src="imgs/img5.jpg" alt="Logo" class="w-40 h-40 rounded-full mb-6 animate-pulse">
+  <h1 class="text-3xl font-bold mb-2 animate-fadeIn">Substitutos de Refeição</h1>
+  <p class="text-base text-gray-300 animate-fadeIn delay-300">Carregando...</p>
+</div>
