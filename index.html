@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -92,11 +96,16 @@
     </a>
   </div>
   
-  <script type="text/javascript">
-    document.getElementById('buyButtonMobile').addEventListener('click', function() {
-      fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('buyButtonMobile');
+      if (btn && typeof fbq === 'function') {
+        btn.addEventListener('click', function () {
+          fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+        });
+      }
     });
-  </script>
+  </script>  
   
   <!-- Navigation -->
   <nav class="bg-green-900 text-white py-4 px-6 sticky top-0 z-50 shadow-md">
@@ -145,35 +154,38 @@
     <script>
       // Configurar o countdown
       function startCountdown() {
-        // Definir um tempo de 24h a partir de agora
-        const now = new Date();
-        const targetTime = new Date(now);
-        targetTime.setHours(now.getHours() + 24);
-        
-        function updateCountdown() {
-          const currentTime = new Date();
-          const diff = targetTime - currentTime;
-          
-          if (diff <= 0) {
-            // Reseta o contador quando atingir zero
-            targetTime.setHours(now.getHours() + 24);
-          }
-          
-          // Calcula horas, minutos e segundos
-          const hours = Math.floor(diff / (1000 * 60 * 60));
-          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-          
-          // Atualiza o display
-          document.getElementById('countdown-hours').innerText = hours.toString().padStart(2, '0');
-          document.getElementById('countdown-minutes').innerText = minutes.toString().padStart(2, '0');
-          document.getElementById('countdown-seconds').innerText = seconds.toString().padStart(2, '0');
-        }
-        
-        // Atualiza a cada segundo
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+  let deadline = localStorage.getItem("deadline");
+
+    if (!deadline) {
+      const now = new Date();
+      now.setHours(now.getHours() + 24);
+      deadline = now.toISOString();
+      localStorage.setItem("deadline", deadline);
+    }
+
+    const targetTime = new Date(deadline);
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetTime - now;
+
+      if (diff <= 0) {
+        document.querySelector('.countdown').innerHTML = "<span class='text-red-600 font-bold'>Oferta Expirada</span>";
+        return;
       }
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown-hours').innerText = hours.toString().padStart(2, '0');
+      document.getElementById('countdown-minutes').innerText = minutes.toString().padStart(2, '0');
+      document.getElementById('countdown-seconds').innerText = seconds.toString().padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
       
       // Inicia o countdown quando a página carrega
       document.addEventListener('DOMContentLoaded', startCountdown);
@@ -186,11 +198,17 @@
       </span>
     </a>
 
-    <script type="text/javascript">
-      document.getElementById('buyButton').addEventListener('click', function() {
-        fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('buyButton');
+        if (btn && typeof fbq === 'function') {
+          btn.addEventListener('click', function () {
+            fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+          });
+        }
       });
     </script>
+    
     
     <div class="mt-6 flex items-center text-green-800 justify-center fade-in delay-500">
       <i class="fas fa-lock mr-2"></i>
@@ -202,14 +220,21 @@
           <span class="font-semibold text-green-900">🎁 Bônus incluído:</span> Guia de armazenamento completo com dicas.
         </div>
 
-    <img src="imgs/img1.jpg" alt="Refeições substitutas saudáveis e práticas" class="mt-12 rounded-lg shadow-lg w-full max-w-4xl object-cover fade-in delay-600 hover:scale-105 transition-transform duration-300" id="buyImage" />
+    <img src="imgs/img1.jpg" id="buyImage" alt="Refeições substitutas saudáveis e práticas" class="mt-12 rounded-lg shadow-lg w-full max-w-4xl object-cover fade-in delay-600 hover:scale-105 transition-transform duration-300" id="Image" />
 
-    <script type="text/javascript">
-      document.getElementById('buyImage').addEventListener('click', function() {
-      fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
-      window.location.href = "https://pay.kiwify.com.br/hlYu5Ob";
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const img = document.getElementById('buyImage');
+        if (img) {
+          img.addEventListener('click', function () {
+            if (typeof fbq === 'function') {
+              fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+            }
+            window.location.href = "https://pay.kiwify.com.br/hlYu5Ob";
+          });
+        }
       });
-    </script>
+    </script>    
   </section>
 
   <!-- Benefits Section -->
@@ -362,12 +387,16 @@
       </a>
     </div>
     
-    <script type="text/javascript">
-      document.getElementById('buyButtonRecipes').addEventListener('click', function() {
-        fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('buyButtonRecipes');
+        if (btn && typeof fbq === 'function') {
+          btn.addEventListener('click', function () {
+            fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+          });
+        }
       });
-    </script>
-  </section>
+    </script>    
 
   <!-- Problem Solution Section -->
   <section class="py-20 px-6 md:px-20 bg-white">
