@@ -111,17 +111,32 @@
   <nav class="bg-green-900 text-white py-4 px-6 sticky top-0 z-50 shadow-md">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
       <div class="flex items-center">
-        <img src="imgs/img5.jpg" alt="Span - Logo" class="w-16 h-16 object-cover rounded-full mr-4"/>
+        <img src="imgs/img5.jpg" alt="Span - Logo" class="w-16 h-16 object-cover rounded-full mr-4" />
         <div class="font-bold text-xl" style="font-size: 26px;">Substitutos de Refeição</div>
       </div>
-      <div class="hidden md:block">
-        <a href="#beneficios" class="mr-6 hover:text-yellow-300 transition" style="font-size: 22px;">Benefícios</a>
-        <a href="#receitas" class="mr-6 hover:text-yellow-300 transition" style="font-size: 22px;">Receitas</a>
-        <a href="#depoimentos" class="mr-6 hover:text-yellow-300 transition" style="font-size: 22px;">Depoimentos</a>
-        <a href="https://pay.kiwify.com.br/hlYu5Ob" id="buyButtonNav" class="bg-yellow-500 hover:bg-yellow-600 text-green-900 font-bold py-2 px-6 rounded-lg transition" style="font-size: 22px;">Comprar agora</a>
+  
+      <!-- Botão hamburguer (aparece só no mobile) -->
+      <button id="menuToggle" class="md:hidden focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+  
+      <!-- Menu para desktop -->
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="#beneficios" class="hover:text-yellow-300 transition text-lg">Benefícios</a>
+        <a href="#receitas" class="hover:text-yellow-300 transition text-lg">Receitas</a>
+        <a href="#depoimentos" class="hover:text-yellow-300 transition text-lg">Depoimentos</a>
+        <a href="https://pay.kiwify.com.br/hlYu5Ob" class="bg-yellow-500 hover:bg-yellow-600 text-green-900 font-bold py-2 px-4 rounded-lg transition text-lg">Comprar agora</a>
       </div>
     </div>
-  </nav>
+  
+    <!-- Menu mobile (inicialmente escondido) -->
+    <div id="mobileMenu" class="md:hidden hidden flex-col space-y-4 mt-4 px-4">
+      <a href="#beneficios" class="block text-lg hover:text-yellow-300">Benefícios</a>
+      <a href="#receitas" class="block text-lg hover:text-yellow-300">Receitas</a>
+      <a href="#depoimentos" class="block text-lg hover:text-yellow-300">Depoimentos</a>
+      <a href="https://pay.kiwify.com.br/hlYu5Ob" class="block bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded-lg hover:bg-yellow-600 text-center">Comprar agora</a>
+    </div>
+  </nav>  
 
   <!-- Hero Section -->
   <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-12 bg-green-50 pt-24 pb-16">
@@ -190,6 +205,18 @@
       // Inicia o countdown quando a página carrega
       document.addEventListener('DOMContentLoaded', startCountdown);
     </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.getElementById("menuToggle");
+        const menu = document.getElementById("mobileMenu");
+
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("hidden");
+        });
+      });
+    </script>
+
 
     <a href="https://pay.kiwify.com.br/hlYu5Ob" id="buyButton" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-green-900 font-extrabold py-5 px-16 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 fade-in delay-400">
       <span class="text-xl">Adquirir agora por R$13,99</span>
@@ -569,11 +596,6 @@
         Junte-se a mais de 200 pessoas que já transformaram sua alimentação!
       </p>
     </div>
-
-    <a href="https://wa.me/5516982171754?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20o%20e-book%20de%20receitas" target="_blank" class="fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg z-50 flex items-center space-x-2 hover:bg-green-700 transition">
-    <i class="fab fa-whatsapp text-xl"></i>
-    <span class="hidden md:inline" style="font-size: 18px;">Fale conosco</span>
-    </a>
   </section>
 
   <!-- Footer -->
@@ -607,3 +629,8 @@
       </div>
     </div>
   </footer>
+  
+  <a href="https://wa.me/5516982171754?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20o%20e-book%20de%20receitas" target="_blank" class="fixed bottom-24 md:bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg z-50 flex items-center space-x-2 hover:bg-green-700 transition">
+    <i class="fab fa-whatsapp text-xl"></i>
+    <span class="hidden md:inline" style="font-size: 18px;">Fale conosco</span>
+  </a>
