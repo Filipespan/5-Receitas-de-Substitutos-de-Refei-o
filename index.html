@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>5 Receitas de Substitutos de Refeição: Práticas e Nutritivas + Dicas</title>
+  <title>E-book de Refeições Saudáveis | 5 Receitas + Dicas</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3 {
       font-family: 'Montserrat', sans-serif;
     }
     .fade-in {
@@ -20,20 +24,58 @@
         opacity: 1;
       }
     }
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
+    .sticky-cta {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+    .countdown {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      padding: 10px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .countdown-item {
+      margin: 0 8px;
+      text-align: center;
+    }
+    .countdown-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #047857;
+    }
+    .countdown-label {
+      font-size: 12px;
+      color: #047857;
+    }
+    @media (min-width: 768px) {
+      .sticky-cta {
+        display: none;
+      }
+    }
   </style>
 
   <!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2885657641608841');
-  fbq('track', 'PageView');
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2885657641608841');
+    fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=2885657641608841&ev=PageView&noscript=1"
@@ -43,163 +85,496 @@
 </head>
 <body class="bg-gradient-to-r from-green-100 via-green-50 to-green-100 text-gray-800">
 
+  <!-- Sticky CTA Button (Mobile) -->
+  <div class="sticky-cta bg-green-900 py-3 px-4 text-center md:hidden">
+    <a href="https://pay.kiwify.com.br/hlYu5Ob" id="buyButtonMobile" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-green-900 font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 w-full">
+      Comprar agora - R$13,99
+    </a>
+  </div>
+  
+  <script type="text/javascript">
+    document.getElementById('buyButtonMobile').addEventListener('click', function() {
+      fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+    });
+  </script>
+  
+  <!-- Navigation -->
+  <nav class="bg-green-900 text-white py-4 px-6 sticky top-0 z-50 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="imgs/img5.jpg" alt="Span - Logo" class="w-16 h-16 object-cover rounded-full mr-4"/>
+        <div class="font-bold text-xl" style="font-size: 26px;">Substitutos de Refeição</div>
+      </div>
+      <div class="hidden md:block">
+        <a href="#beneficios" class="mr-6 hover:text-yellow-300 transition" style="font-size: 22px;">Benefícios</a>
+        <a href="#receitas" class="mr-6 hover:text-yellow-300 transition" style="font-size: 22px;">Receitas</a>
+        <a href="#depoimentos" class="mr-6 hover:text-yellow-300 transition" style="font-size: 22px;">Depoimentos</a>
+        <a href="https://pay.kiwify.com.br/hlYu5Ob" id="buyButtonNav" class="bg-yellow-500 hover:bg-yellow-600 text-green-900 font-bold py-2 px-6 rounded-lg transition" style="font-size: 22px;">Comprar agora</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-12 bg-green-50 pt-12">
+  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-12 bg-green-50 pt-24 pb-16">
     <h1 class="text-4xl md:text-6xl font-extrabold text-green-900 mb-4 fade-in">
-      5 Receitas de Substitutos de Refeição
+      5 Receitas de <span class="text-yellow-500">Substitutos de Refeição</span>
     </h1>
-    <p class="text-xl md:text-2xl text-green-700 mb-8 fade-in delay-200">
-      Práticas e Nutritivas + Dicas Exclusivas para Você
+    <p class="text-xl md:text-2xl text-green-700 mb-4 fade-in delay-200 max-w-3xl">
+      Economize tempo, mantenha a saúde e transforme sua rotina alimentar com nossas receitas práticas e nutritivas
     </p>
     
-    <a href="https://pay.kiwify.com.br/hlYu5Ob" id="buyButton" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-green-900 font-extrabold py-5 px-16 rounded-lg shadow-lg transition duration-300 animate-pulse fade-in delay-400">
-      Adquirir agora por R$13,99
-    </a>
+    <p class="text-md text-red-600 font-bold mb-6 fade-in delay-300">
+      <i class="fas fa-clock mr-2"></i> Oferta por tempo limitado:
+    </p>
     
+    <div class="countdown mb-8 fade-in delay-300">
+      <div class="countdown-item">
+        <div class="countdown-number" id="countdown-hours">24</div>
+        <div class="countdown-label">Horas</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="countdown-minutes">00</div>
+        <div class="countdown-label">Minutos</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="countdown-seconds">00</div>
+        <div class="countdown-label">Segundos</div>
+      </div>
+    </div>
+    
+    <script>
+      // Configurar o countdown
+      function startCountdown() {
+        // Definir um tempo de 24h a partir de agora
+        const now = new Date();
+        const targetTime = new Date(now);
+        targetTime.setHours(now.getHours() + 24);
+        
+        function updateCountdown() {
+          const currentTime = new Date();
+          const diff = targetTime - currentTime;
+          
+          if (diff <= 0) {
+            // Reseta o contador quando atingir zero
+            targetTime.setHours(now.getHours() + 24);
+          }
+          
+          // Calcula horas, minutos e segundos
+          const hours = Math.floor(diff / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+          
+          // Atualiza o display
+          document.getElementById('countdown-hours').innerText = hours.toString().padStart(2, '0');
+          document.getElementById('countdown-minutes').innerText = minutes.toString().padStart(2, '0');
+          document.getElementById('countdown-seconds').innerText = seconds.toString().padStart(2, '0');
+        }
+        
+        // Atualiza a cada segundo
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+      
+      // Inicia o countdown quando a página carrega
+      document.addEventListener('DOMContentLoaded', startCountdown);
+    </script>
+
+    <a href="https://pay.kiwify.com.br/hlYu5Ob" id="buyButton" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-green-900 font-extrabold py-5 px-16 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 fade-in delay-400">
+      <span class="text-xl">Adquirir agora por R$13,99</span>
+      <span class="block text-sm mt-1">
+        <span class="line-through">De R$29,99</span> | 53% de desconto!
+      </span>
+    </a>
+
     <script type="text/javascript">
       document.getElementById('buyButton').addEventListener('click', function() {
         fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
       });
     </script>
     
-    <img src="imgs/img1.jpg" alt="Refeições substitutas saudáveis" class="mt-12 rounded-lg shadow-lg w-full max-w-4xl object-cover fade-in delay-600" />
+    <div class="mt-6 flex items-center text-green-800 justify-center fade-in delay-500">
+      <i class="fas fa-lock mr-2"></i>
+      <span>Pagamento 100% seguro • Entrega imediata</span>
+    </div>
+    
+        <!-- BÔNUS -->
+        <div class="mt-4 mb-6 text-center text-sm text-green-800 bg-yellow-100 px-4 py-2 rounded-lg shadow-sm inline-block">
+          <span class="font-semibold text-green-900">🎁 Bônus incluído:</span> Guia de armazenamento completo com dicas.
+        </div>
+
+    <img src="imgs/img1.jpg" alt="Refeições substitutas saudáveis e práticas" class="mt-12 rounded-lg shadow-lg w-full max-w-4xl object-cover fade-in delay-600 hover:scale-105 transition-transform duration-300" id="buyImage" />
+
+    <script type="text/javascript">
+      document.getElementById('buyImage').addEventListener('click', function() {
+      fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+      window.location.href = "https://pay.kiwify.com.br/hlYu5Ob";
+      });
+    </script>
   </section>
 
   <!-- Benefits Section -->
-  <section class="py-16 px-6 md:px-20 bg-white">
-    <h2 class="text-3xl font-bold text-center text-green-900 mb-12 fade-in">Por que escolher este e-book?</h2>
+  <section id="beneficios" class="py-20 px-6 md:px-20 bg-white">
+    <h2 class="text-3xl font-bold text-center text-green-900 mb-6 fade-in">
+      Por que escolher este e-book?
+    </h2>
+    <p class="text-center text-lg text-green-700 mb-12 max-w-3xl mx-auto fade-in delay-200">
+      Descubra como transformar sua alimentação com substitutos de refeição que nutrem seu corpo e se encaixam na sua rotina
+    </p>
+    
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div class="text-center fade-in delay-200">
+      <div class="text-center p-6 rounded-lg bg-green-50 shadow-md transition duration-300 benefit-card fade-in delay-200">
         <i class="fas fa-carrot text-green-600 text-5xl mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Receitas Nutritivas</h3>
-        <p>Substitutos de refeição ricos em nutrientes para manter sua saúde em dia.</p>
+        <h3 class="text-xl font-semibold mb-3">Nutrição Completa</h3>
+        <p>Receitas balanceadas com proteínas, carboidratos e gorduras boas para manter sua energia e saúde ao longo do dia.</p>
       </div>
-      <div class="text-center fade-in delay-400">
+      <div class="text-center p-6 rounded-lg bg-green-50 shadow-md transition duration-300 benefit-card fade-in delay-400">
         <i class="fas fa-clock text-green-600 text-5xl mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Praticidade</h3>
-        <p>Receitas rápidas e fáceis para o seu dia a dia corrido.</p>
+        <h3 class="text-xl font-semibold mb-3">Economia de Tempo</h3>
+        <p>Refeições prontas em menos de 15 minutos, perfeitas para seu dia a dia corrido sem comprometer a qualidade.</p>
       </div>
-      <div class="text-center fade-in delay-600">
+      <div class="text-center p-6 rounded-lg bg-green-50 shadow-md transition duration-300 benefit-card fade-in delay-600">
         <i class="fas fa-lightbulb text-green-600 text-5xl mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Dicas Exclusivas</h3>
-        <p>Conselhos valiosos para potencializar seus resultados.</p>
+        <h3 class="text-xl font-semibold mb-3">Dicas Exclusivas</h3>
+        <p>Conselhos valiosos sobre armazenamento, preparação antecipada e variações para personalizar cada receita.</p>
+      </div>
+    </div>
+    
+    <div class="mt-16 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="p-6 rounded-lg bg-green-50 shadow-md fade-in delay-600">
+        <h3 class="text-xl font-semibold mb-3 flex items-center">
+          <i class="fas fa-check-circle text-green-600 mr-3"></i>
+          Ideal para:
+        </h3>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <i class="fas fa-angle-right text-green-600 mt-1 mr-2"></i>
+            <span>Pessoas com rotina agitada que precisam de refeições rápidas</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-angle-right text-green-600 mt-1 mr-2"></i>
+            <span>Quem busca alternativas saudáveis para fast-food</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-angle-right text-green-600 mt-1 mr-2"></i>
+            <span>Estudantes e profissionais que almoçam fora de casa</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-angle-right text-green-600 mt-1 mr-2"></i>
+            <span>Iniciantes em alimentação saudável</span>
+          </li>
+        </ul>
+      </div>
+      <div class="p-6 rounded-lg bg-green-50 shadow-md fade-in delay-800">
+        <h3 class="text-xl font-semibold mb-3 flex items-center">
+          <i class="fas fa-gift text-green-600 mr-3"></i>
+          O que você receberá:
+        </h3>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <i class="fas fa-angle-right text-green-600 mt-1 mr-2"></i>
+            <span>5 receitas completas com instruções passo a passo</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-angle-right text-green-600 mt-1 mr-2"></i>
+            <span>Lista de compras para facilitar sua organização</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-angle-right text-green-600 mt-1 mr-2"></i>
+            <span>Informações nutricionais de cada receita</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-angle-right text-green-600 mt-1 mr-2"></i>
+            <span>Bônus: Guia de armazenamento para preparar com antecedência</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- Recipe Preview Section -->
-  <section class="py-16 px-6 md:px-20 bg-green-50">
-    <h2 class="text-3xl font-bold text-center text-green-900 mb-12 fade-in">Algumas Receitas do E-book</h2>
+  <section id="receitas" class="py-20 px-6 md:px-20 bg-green-50">
+    <h2 class="text-3xl font-bold text-center text-green-900 mb-6 fade-in">
+      Conheça Nossas Receitas Exclusivas
+    </h2>
+    <p class="text-center text-lg text-green-700 mb-12 max-w-3xl mx-auto fade-in delay-200">
+      Cada receita foi cuidadosamente desenvolvida para oferecer o equilíbrio perfeito entre sabor, nutrição e praticidade
+    </p>
+    
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-      <article class="bg-white rounded-lg shadow-lg overflow-hidden fade-in delay-200">
-        <img src="imgs/img2.jpg" alt="Smoothie Verde" class="w-full h-78 object-cover" />
+      <article class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in delay-200">
+        <div class="relative">
+          <img src="imgs/img2.jpg" alt="Smoothie de Proteína" class="w-full h-78 object-cover" />
+          <div class="absolute top-0 right-0 bg-yellow-500 text-green-900 font-bold py-1 px-3 rounded-bl-lg">
+            5 min
+          </div>
+        </div>
         <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Smoothie de Proteína com Frutas Vermelhas</h3>
-          <p>Uma bebida refrescante e nutritiva para começar o dia com energia.</p>
+          <h3 class="text-xl font-semibold mb-3">Smoothie de Proteína com Frutas Vermelhas</h3>
+          <p class="mb-4">Uma bebida refrescante e nutritiva com 20g de proteína para começar o dia com energia ou repor nutrientes após o treino.</p>
+          <div class="flex justify-between items-center text-sm text-green-800">
+            <span><i class="fas fa-fire mr-1"></i> 320 kcal</span>
+            <span><i class="fas fa-seedling mr-1"></i> Sem glúten</span>
+            <span><i class="fas fa-utensils mr-1"></i> 1 porção</span>
+          </div>
         </div>
       </article>
-      <article class="bg-white rounded-lg shadow-lg overflow-hidden fade-in delay-400">
-        <img src="imgs/img3.jpg" alt="Bowl de Frutas" class="w-full h-78 object-cover" />
+      
+      <article class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in delay-400">
+        <div class="relative">
+          <img src="imgs/img3.jpg" alt="Wrap Integral" class="w-full h-78 object-cover" />
+          <div class="absolute top-0 right-0 bg-yellow-500 text-green-900 font-bold py-1 px-3 rounded-bl-lg">
+            15 min
+          </div>
+        </div>
         <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Wrap Integral com Frango e Vegetais</h3>
-          <p>Opção prática e nutritiva com frango grelhado, vegetais frescos e pão integral.</p>
+          <h3 class="text-xl font-semibold mb-3">Wrap Integral com Frango e Vegetais</h3>
+          <p class="mb-4">Opção prática e nutritiva com frango grelhado, vegetais frescos e pão integral. Perfeito para levar em marmita.</p>
+          <div class="flex justify-between items-center text-sm text-green-800">
+            <span><i class="fas fa-fire mr-1"></i> 450 kcal</span>
+            <span><i class="fas fa-drumstick-bite mr-1"></i> Rico em proteínas</span>
+            <span><i class="fas fa-utensils mr-1"></i> 1 porção</span>
+          </div>
         </div>
       </article>
-      <article class="bg-white rounded-lg shadow-lg overflow-hidden fade-in delay-600">
-        <img src="imgs/img4.jpg" alt="Sopa Detox" class="w-full h-78 object-cover" />
+      
+      <article class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in delay-600">
+        <div class="relative">
+          <img src="imgs/img4.jpg" alt="Sopa Creme" class="w-full h-78 object-cover" />
+          <div class="absolute top-0 right-0 bg-yellow-500 text-green-900 font-bold py-1 px-3 rounded-bl-lg">
+            12 min
+          </div>
+        </div>
         <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Sopa Creme de Abóbora com Gengibre</h3>
-          <p>Receita leve e desintoxicante para cuidar do seu corpo.</p>
+          <h3 class="text-xl font-semibold mb-3">Sopa Creme de Abóbora com Gengibre</h3>
+          <p class="mb-4">Uma opção reconfortante com propriedades anti-inflamatórias. Ideal para noites tranquilas ou dias frios.</p>
+          <div class="flex justify-between items-center text-sm text-green-800">
+            <span><i class="fas fa-fire mr-1"></i> 280 kcal</span>
+            <span><i class="fas fa-leaf mr-1"></i> Vegana</span>
+            <span><i class="fas fa-utensils mr-1"></i> 2 porções</span>
+          </div>
         </div>
       </article>
     </div>
+    
+    <div class="mt-12 text-center">
+      <a href="https://pay.kiwify.com.br/hlYu5Ob" id="buyButtonRecipes" class="inline-block bg-green-700 hover:bg-green-800 text-white font-bold py-4 px-10 rounded-lg shadow-md transition duration-300 fade-in delay-800">
+        Ver todas as 5 receitas no e-book
+      </a>
+    </div>
+    
+    <script type="text/javascript">
+      document.getElementById('buyButtonRecipes').addEventListener('click', function() {
+        fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+      });
+    </script>
   </section>
 
-  <!-- Tips Section -->
-  <section class="py-16 px-6 md:px-20 bg-white">
-    <h2 class="text-3xl font-bold text-center text-green-900 mb-12 fade-in">Dicas para Potencializar seus Resultados</h2>
-    <ul class="max-w-4xl mx-auto space-y-6 text-green-800 fade-in delay-200">
-      <li class="flex items-start space-x-4">
-        <i class="fas fa-check-circle text-green-600 text-3xl mt-1"></i>
-        <p>Mantenha uma rotina alimentar equilibrada e consistente.</p>
-      </li>
-      <li class="flex items-start space-x-4">
-        <i class="fas fa-check-circle text-green-600 text-3xl mt-1"></i>
-        <p>Hidrate-se bem ao longo do dia para melhorar a digestão.</p>
-      </li>
-      <li class="flex items-start space-x-4">
-        <i class="fas fa-check-circle text-green-600 text-3xl mt-1"></i>
-        <p>Combine as receitas com exercícios físicos regulares.</p>
-      </li>
-    </ul>
+  <!-- Problem Solution Section -->
+  <section class="py-20 px-6 md:px-20 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="fade-in">
+          <h2 class="text-3xl font-bold text-green-900 mb-6">Você já se sentiu assim?</h2>
+          <ul class="space-y-4">
+            <li class="flex items-start text-red-600">
+              <i class="fas fa-times-circle text-xl mt-1 mr-3"></i>
+              <p>Sem tempo para preparar refeições saudáveis no dia a dia</p>
+            </li>
+            <li class="flex items-start text-red-600">
+              <i class="fas fa-times-circle text-xl mt-1 mr-3"></i>
+              <p>Recorrendo a fast-food ou opções ultraprocessadas por praticidade</p>
+            </li>
+            <li class="flex items-start text-red-600">
+              <i class="fas fa-times-circle text-xl mt-1 mr-3"></i>
+              <p>Cansado de sempre comer as mesmas coisas</p>
+            </li>
+            <li class="flex items-start text-red-600">
+              <i class="fas fa-times-circle text-xl mt-1 mr-3"></i>
+              <p>Sem energia durante o dia por causa de refeições desequilibradas</p>
+            </li>
+            <li class="flex items-start text-red-600">
+              <i class="fas fa-times-circle text-xl mt-1 mr-3"></i>
+              <p>Gastando muito dinheiro com deliveries pouco nutritivos</p>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="fade-in delay-400">
+          <h2 class="text-3xl font-bold text-green-900 mb-6">Nosso e-book é a solução!</h2>
+          <ul class="space-y-4">
+            <li class="flex items-start text-green-600">
+              <i class="fas fa-check-circle text-xl mt-1 mr-3"></i>
+              <p>Receitas que levam no máximo 15 minutos para preparar</p>
+            </li>
+            <li class="flex items-start text-green-600">
+              <i class="fas fa-check-circle text-xl mt-1 mr-3"></i>
+              <p>Alternativas saudáveis que cabem no seu orçamento</p>
+            </li>
+            <li class="flex items-start text-green-600">
+              <i class="fas fa-check-circle text-xl mt-1 mr-3"></i>
+              <p>Variedade de sabores e texturas para não cair na monotonia</p>
+            </li>
+            <li class="flex items-start text-green-600">
+              <i class="fas fa-check-circle text-xl mt-1 mr-3"></i>
+              <p>Refeições balanceadas que mantêm sua energia estável</p>
+            </li>
+            <li class="flex items-start text-green-600">
+              <i class="fas fa-check-circle text-xl mt-1 mr-3"></i>
+              <p>Economia a longo prazo, preparando suas próprias refeições</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nutritional Information -->
+  <section class="py-20 px-6 md:px-20 bg-green-50">
+    <h2 class="text-3xl font-bold text-center text-green-900 mb-6 fade-in">
+      Nutrição Balanceada em Cada Receita
+    </h2>
+    <p class="text-center text-lg text-green-700 mb-12 max-w-3xl mx-auto fade-in delay-200">
+      Cada substituto de refeição foi desenvolvido para oferecer o equilíbrio ideal de nutrientes
+    </p>
+    
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8 fade-in delay-300">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-drumstick-bite text-3xl text-green-600"></i>
+          </div>
+          <h3 class="font-semibold mb-2">Proteínas</h3>
+          <p>15-25g por porção para saciedade e recuperação muscular</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-bread-slice text-3xl text-green-600"></i>
+          </div>
+          <h3 class="font-semibold mb-2">Carboidratos</h3>
+          <p>30-45g por porção de fontes complexas para energia duradoura</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-seedling text-3xl text-green-600"></i>
+          </div>
+          <h3 class="font-semibold mb-2">Fibras</h3>
+          <p>5-8g por porção para digestão saudável e saciedade prolongada</p>
+        </div>
+      </div>
+      
+      <div class="mt-10 text-center p-4 bg-green-100 rounded-lg">
+        <p class="text-green-800 font-semibold">
+          <i class="fas fa-info-circle mr-2"></i>
+          Todas as receitas incluem informações detalhadas sobre calorias e nutrientes.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- Reviews Section -->
-  <section class="py-16 px-6 md:px-20 bg-white">
-    <h2 class="text-3xl font-bold text-center text-green-900 mb-12 fade-in">O que dizem nossos leitores</h2>
+  <section id="depoimentos" class="py-20 px-6 md:px-20 bg-white">
+    <h2 class="text-3xl font-bold text-center text-green-900 mb-6 fade-in">
+      O que dizem nossos leitores
+    </h2>
+    <p class="text-center text-lg text-green-700 mb-12 max-w-3xl mx-auto fade-in delay-200">
+      Descubra como nosso e-book transformou a rotina alimentar de centenas de pessoas
+    </p>
+    
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-      <article class="bg-green-50 rounded-lg shadow-lg p-6 fade-in delay-200">
+      <article class="bg-green-50 rounded-lg shadow-lg p-6 relative fade-in delay-200 transform transition duration-300 hover:shadow-xl">
+        <div class="absolute -top-4 -right-4 bg-yellow-500 text-green-900 rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl">
+          4.8
+        </div>
         <div class="flex items-center mb-4">
           <i class="fas fa-user-circle text-green-600 text-4xl mr-4"></i>
           <div>
             <h3 class="font-semibold text-green-800">Ana Paula</h3>
-            <div class="text-green-600">
+            <div class="text-yellow-500">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
             </div>
           </div>
         </div>
-        <p>Este e-book mudou minha rotina! As receitas são práticas e deliciosas, e as dicas realmente ajudam a manter uma alimentação saudável.</p>
+        <p class="mb-3">Este e-book mudou minha rotina! As receitas são práticas e deliciosas, e as dicas realmente ajudam a manter uma alimentação saudável mesmo com agenda lotada.</p>
+        <p class="text-green-700 italic">"O smoothie de proteína se tornou meu café da manhã oficial nos dias de academia!"</p>
       </article>
-      <article class="bg-green-50 rounded-lg shadow-lg p-6 fade-in delay-400">
+      
+      <article class="bg-green-50 rounded-lg shadow-lg p-6 relative fade-in delay-400 transform transition duration-300 hover:shadow-xl">
+        <div class="absolute -top-4 -right-4 bg-yellow-500 text-green-900 rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl">
+          5.0
+        </div>
         <div class="flex items-center mb-4">
           <i class="fas fa-user-circle text-green-600 text-4xl mr-4"></i>
           <div>
             <h3 class="font-semibold text-green-800">Carlos Eduardo</h3>
-            <div class="text-green-600">
+            <div class="text-yellow-500">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
           </div>
         </div>
-        <p>As receitas são muito nutritivas e fáceis de preparar. Recomendo para quem quer praticidade sem abrir mão da saúde.</p>
+        <p class="mb-3">As receitas são muito nutritivas e fáceis de preparar. Recomendo para quem quer praticidade sem abrir mão da saúde. Já preparei todas várias vezes!</p>
+        <p class="text-green-700 italic">"O wrap de frango virou meu almoço padrão para levar ao trabalho. Economizo tempo e dinheiro!"</p>
       </article>
-      <article class="bg-green-50 rounded-lg shadow-lg p-6 fade-in delay-600">
+      
+      <article class="bg-green-50 rounded-lg shadow-lg p-6 relative fade-in delay-600 transform transition duration-300 hover:shadow-xl">
+        <div class="absolute -top-4 -right-4 bg-yellow-500 text-green-900 rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl">
+          4.7
+        </div>
         <div class="flex items-center mb-4">
           <i class="fas fa-user-circle text-green-600 text-4xl mr-4"></i>
           <div>
             <h3 class="font-semibold text-green-800">Mariana Silva</h3>
-            <div class="text-green-600">
+            <div class="text-yellow-500">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
             </div>
           </div>
         </div>
-        <p>Adorei as dicas e as receitas! Me ajudaram a variar minha alimentação e a manter o foco na saúde.</p>
+        <p class="mb-3">Adorei as dicas e as receitas! Me ajudaram a variar minha alimentação e a manter o foco na saúde. As informações nutricionais são um diferencial!</p>
+        <p class="text-green-700 italic">"Não imaginei que substituir refeições poderia ser tão saboroso e satisfatório!"</p>
       </article>
     </div>
-  </section>
-
-  <!-- Call to Action Section -->
-  <section id="download" class="py-16 px-6 md:px-20 bg-green-100 text-center fade-in delay-400">
-    <h2 class="text-3xl font-bold text-green-900 mb-6">Pronto para transformar sua alimentação?</h2>
-    <p class="mb-8 max-w-xl mx-auto text-green-800">Adquira agora o e-book <strong>5 Receitas de Substitutos de Refeição</strong> e comece a preparar refeições práticas e nutritivas hoje mesmo!</p>
-    <a href="https://pay.kiwify.com.br/hlYu5Ob" id="buyButton2" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-green-900 font-extrabold py-4 px-12 rounded-lg shadow-lg transition duration-300 animate-pulse">
-      Adquirir agora por R$13,99
-    </a>
     
-    <script type="text/javascript">
-      document.getElementById('buyButton2').addEventListener('click', function() {
-        fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
-      });
-    </script>    
+    <div class="mt-12 text-center">
+      <p class="text-2xl font-semibold text-green-800 fade-in delay-800">
+        Junte-se a mais de 200 pessoas que já transformaram sua alimentação!
+      </p>
+    </div>
+
+    <a href="https://wa.me/5516982171754?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20o%20e-book%20de%20receitas" target="_blank" class="fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg z-50 flex items-center space-x-2 hover:bg-green-700 transition">
+    <i class="fab fa-whatsapp text-xl"></i>
+    <span class="hidden md:inline" style="font-size: 18px;">Fale conosco</span>
+    </a>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-green-900 text-green-100 py-6 text-center space-y-2">
-    <p>© 2024 5 Receitas de Substitutos de Refeição. Todos os direitos reservados.</p>
-    <p class="flex justify-center items-center space-x-2">
-      <i class="fas fa-phone-alt"></i>
-      <span>Contato: (16) 9 8217-1754</span>
-    </p>
-    <p class="italic text-green-300">Criado por Filipe Ramalho Spanghero</p>
+  <footer class="bg-green-900 text-white py-10">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-lg font-bold mb-4">Sobre Nós</h3>
+          <p class="text-sm text-gray-300">
+            Nosso objetivo é ajudar você a transformar sua alimentação com receitas práticas, nutritivas e acessíveis. Junte-se a nós nessa jornada pela saúde e bem-estar!
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">Links Úteis</h3>
+          <ul class="text-sm space-y-2">
+            <li><a href="#beneficios" class="hover:text-yellow-300 transition">Benefícios</a></li>
+            <li><a href="#receitas" class="hover:text-yellow-300 transition">Receitas</a></li>
+            <li><a href="#depoimentos" class="hover:text-yellow-300 transition">Depoimentos</a></li>
+            <li><a href="#hero" class="hover:text-yellow-300 transition">Comprar Agora</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">Contato</h3>
+          <p class="text-sm text-gray-300">E-mail: filipespan@gmail.com</p>
+          <p class="text-sm text-gray-300">WhatsApp: <a href="https://wa.me/5516982171754" class="hover:text-yellow-300 transition">+55 16 98217-1754</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-sm text-gray-400">
+        &copy; 2025 Substitutos de Refeição. Todos os direitos reservados.
+      </div>
+    </div>
   </footer>
-</body>
-</html>
