@@ -102,7 +102,7 @@
   <!-- Sticky CTA Button (Mobile) -->
   <div class="sticky-cta bg-green-900 py-3 px-4 text-center md:hidden">
     <a href="https://pay.kiwify.com.br/hlYu5Ob" id="buyButtonMobile" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-green-900 font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 w-full">
-      Comprar agora - R$13,99
+      Comprar agora - R$17,99
     </a>
   </div>
   
@@ -111,7 +111,7 @@
       const btn = document.getElementById('buyButtonMobile');
       if (btn && typeof fbq === 'function') {
         btn.addEventListener('click', function () {
-          fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+          fbq('track', 'Purchase', {currency: "BRL", value: 17.99});
         });
       }
     });
@@ -229,9 +229,9 @@
 
 
     <a href="https://pay.kiwify.com.br/hlYu5Ob" id="buyButton" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-green-900 font-extrabold py-5 px-16 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 fade-in delay-400">
-      <span class="text-xl">Adquirir agora por R$13,99</span>
+      <span class="text-xl">Adquirir agora por R$17,99</span>
       <span class="block text-sm mt-1">
-        <span class="line-through">De R$29,99</span> | 53% de desconto!
+        <span class="line-through">De R$27,99</span> | +55% de desconto!
       </span>
     </a>
 
@@ -240,7 +240,7 @@
         const btn = document.getElementById('buyButton');
         if (btn && typeof fbq === 'function') {
           btn.addEventListener('click', function () {
-            fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+            fbq('track', 'Purchase', {currency: "BRL", value: 17.99});
           });
         }
       });
@@ -265,7 +265,7 @@
         if (img) {
           img.addEventListener('click', function () {
             if (typeof fbq === 'function') {
-              fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+              fbq('track', 'Purchase', {currency: "BRL", value: 17.99});
             }
             window.location.href = "https://pay.kiwify.com.br/hlYu5Ob";
           });
@@ -433,7 +433,7 @@
         const btn = document.getElementById('buyButtonRecipes');
         if (btn && typeof fbq === 'function') {
           btn.addEventListener('click', function () {
-            fbq('track', 'Purchase', {currency: "BRL", value: 13.99});
+            fbq('track', 'Purchase', {currency: "BRL", value: 17.99});
           });
         }
       });
